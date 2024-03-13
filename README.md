@@ -1,69 +1,83 @@
-# BOOLEAN_FUNCTION_MINIMIZATION
+## Name : Kamal raj A
+## Reg. no: 23012941
+## Experiment--02-Implementation-of-combinational-logic
 
-**AIM:**
-
+## AIM:
 To implement the given logic function verify its operation in Quartus using Verilog programming.
-
-F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D 
-
+F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
 F2=xy’z+x’y’z+w’xy+wx’y+wxy
-
-**Equipment Required:**
-
+ 
+ 
+ 
+## Equipments Required:
 Hardware – PCs, Cyclone II , USB flasher
+Software – Quartus prime
 
-**Software – Quartus prime**
+## Theory:
+A combinational circuit is a circuit in which
+the output depends on the present combination of inputs.
+Combinational circuits are made up of logic gates. The
+output of each logic gate is determined by its logic function. Combinational
+circuits can be made using various logic gates, such as AND gates, OR gates, and NOT gates.
 
-**Theory**
+## Procedure:
+1. Create a New Project:
 
-**Logic Diagram**
+Open Quartus and create a new project by
+selecting "File" > "New Project Wizard." Follow
+the wizard's instructions to set up your project, including specifying 
+the project name, location, and target device (FPGA).
 
-**Procedure**
-
-1.	Type the program in Quartus software.
-
-2.	Compile and run the program.
-
-3.	Generate the RTL schematic and save the logic diagram.
-
-4.	Create nodes for inputs and outputs to generate the timing diagram.
-
-5.	For different input combinations generate the timing diagram.
+2. Create a New Design File:
 
 
-**Program:**
-```python
-module flipflops(a,b,Y1,Y2,Y3,Y4,Y5,Y6,Y7);
-input a,b;
-output Y1,Y2,Y3,Y4,Y5,Y6,Y7;
-and(Y1,a,b);
-or(Y2,a,b);
-not(Y3,a);
-xor(Y4,a,b);
-nand(Y5,a,b);
-nor(Y6,a,b);
-xnor(Y7,a,b);
+*Once the project is created, right-click on the project name in the Project Navigator and select "Add New File."
+*Choose "Verilog HDL File" or "VHDL File," depending on your chosen hardware description language.
+
+3. Write the Combinational Logic Code:
+  
+*Open the newly created Verilog or VHDL file and write the code for your combinational logic.
+
+4.Compile the Project:
+
+*To compile the project, click on "Processing" > "Start Compilation" in the menu. *Quartus will analyze your code, synthesize it into a netlist, and perform optimizations based on your target FPGA device.
+
+5.Analyze and Fix Errors:
+
+*If there are any errors or warnings during the compilation process, Quartus will display them in the Messages window.
+
+*Review and fix any issues in your code if necessary. *View the RTL diagram.
+
+6.Verification:
+
+*Click on "File" > "New" > "Verification/Debugging Files" > "University Program VWF".
+
+*Once Waveform is created Right Click on the Input/Output Panel > " Insert Node or Bus" > Click on Node Finder > Click On "List" > Select All.
+
+*Give the Input Combinations according to the Truth Table and then simulate the Output Waveform.
+## Program:
+```
+module ex2(A,B,C,D,F1);
+input A,B,C,D;
+output F1;
+wire x1,x2,x3,x4,x5;
+assign x1=(~A)&(~B)&(~C)&(~D);
+assign x2=(A)&(~C)&(~D);
+assign x3=(~B)&(C)&(~D);
+assign x4=(~A)&(B)&(C)&(D);
+assign x5=(B)&(~C)&(D);
+
+assign F1=x1|x2|x3|x4|x5;
 endmodule
 ```
-## Logic symbol & Truthtable
+## RTL realization
+![WhatsApp Image 2023-12-22 at 14 05 23_7aead406](https://github.com/Kamal-Raj-A/Experiment--02-Implementation-of-combinational-logic-/assets/145742556/f3211b49-bd3c-4302-b3a9-f71f4ba58fe1)
+## Truth table:
+![WhatsApp Image 2023-12-22 at 14 07 03_020500d0](https://github.com/Kamal-Raj-A/Experiment--02-Implementation-of-combinational-logic-/assets/145742556/5e57d2a5-c8e3-4ba8-988e-042ebba5119b)
 
- ![image](https://github.com/23004513/study-of-basic-gates/assets/138973069/0637a1e9-8297-4190-9169-3b3ca939cf6b)
-
-/* Program to implement the given logic function and to verify its operations in quartus using Verilog programming. 
-
-Developed by:B.NIHITHA RANI
-RegisterNumber:212223040131
+## Timing Diagram
+![IMG_20231223_100210](https://github.com/Kamal-Raj-A/Experiment--02-Implementation-of-combinational-logic-/assets/145742556/61447713-d289-43b1-a284-df6ea5067c3c)
 
 
-**RTL realization Output:**
-![image](https://github.com/23004513/study-of-basic-gates/assets/138973069/c8aa777f-970e-4d33-b3d1-c042ecca8581)
-
-**RTL**
-![image](https://github.com/23004513/study-of-basic-gates/assets/138973069/2d8a4e26-bb61-4984-bd36-a8edf62b9434)
-
-**Timing Diagram**
-
-**Result:**
-
-Thus the given logic functions are implemented using and their operations are verified using Verilog programming.
-
+## Result:
+Thus the given logic functions are implemented using  and their operations are verified using Verilog programming.
