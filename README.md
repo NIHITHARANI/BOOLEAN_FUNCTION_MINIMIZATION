@@ -1,5 +1,5 @@
-## Name : Kamal raj A
-## Reg. no: 23012941
+## Name : NIHITHA RANI B
+## Reg. no: 23012494
 ## Experiment--02-Implementation-of-combinational-logic
 
 ## AIM:
